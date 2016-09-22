@@ -1,0 +1,44 @@
+$container: 960px; //tamanho máximo do container
+$grid-gutter: 20; //espacamento entre as colunas em pixel
+$grid-columns: 12; //quantidade de colunas
+
+$grid-margin: ($grid-gutter/$grid-columns) * 1%; //calculo do espacamento entre as colunas em porcentagem
+
+@function grid-columns-width($cs){
+  $grind-single-column-width: (100 - ($grid-margin * ($grid-columns - 1)))/$grid-columns; //calculo da largura de uma única coluna
+  @return ($grind-single-column-width * $cs) + ($grid-margin * ($cs - 1)); //calculo da largura das colunas
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.row {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.column {
+  position: relative;
+  float: left;
+  display: block;
+
+  + .column {
+    margin-left: $grid-margin;
+  }
+}
+
+@for $i from 1 through $grid-columns {
+  .column-#{$i} {
+    width: grid-columns-width($i);
+  }
+}
