@@ -1,0 +1,25 @@
+$break-small: 550px;
+
+@media only screen and (max-width: $break-small) {
+  .row {
+    margin-bottom: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .column {
+    float: none;
+    width: auto;
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    + .column {
+        margin-left: 0;
+    }
+  }
+}

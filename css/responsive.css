@@ -1,0 +1,16 @@
+@media only screen and (max-width: 550px) {
+  .row {
+    margin-bottom: 0; }
+    .row:last-child {
+      margin-bottom: 0; }
+
+  .column {
+    float: none;
+    width: auto;
+    margin-bottom: 10px; }
+    .column:last-child {
+      margin-bottom: 0; }
+    .column + .column {
+      margin-left: 0; } }
+
+/*# sourceMappingURL=responsive.css.map */
